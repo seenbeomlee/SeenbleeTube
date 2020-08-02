@@ -1,0 +1,22 @@
+{
+  "name": "clone_youtube",
+  "version": "1.0.0",
+  "description": "Cloning Youtube iwth VanillaJs and NodeJs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seenbeomlee/CLONE_youtube.git"
+  },
+  "author": "seenblee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seenbeomlee/CLONE_youtube/issues"
+  },
+  "homepage": "https://github.com/seenbeomlee/CLONE_youtube#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
