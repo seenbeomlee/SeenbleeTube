@@ -1,16 +1,24 @@
 /* globalRoutes */
-export const homeController = (req, res) =>
-  res.render('Home', { pageTitle: 'Home' });
-export const searchController = (req, res) =>
-  res.send('Search', { pageTitle: 'Search' });
+export const homeController = (req, res) => {
+  res.render('home', { pageTitle: 'Home' });
+};
+export const searchController = (req, res) => {
+  const {
+    query: { term: searchingBy },
+  } = req;
+  res.render('search', { pageTitle: 'Search', searchingBy });
+};
 
 /* videoRoutes */
-export const videosController = (req, res) =>
-  res.send('videos', { pageTitle: 'Upload' });
-export const uploadController = (req, res) => res.send('upload');
-export const videoDetailController = (req, res) =>
-  res.send('videoDetail', { pageTitle: 'Video Detail' });
-export const editVideoController = (req, res) =>
-  res.send('editVideo', { pageTitle: 'Edit Video' });
-export const deleteVideoController = (req, res) =>
-  res.send('deleteVideo', { pageTitle: 'Delete Video' });
+export const uploadController = (req, res) => {
+  res.render('upload', { pageTitle: 'Upload' });
+};
+export const videoDetailController = (req, res) => {
+  res.render('videoDetail', { pageTitle: 'Video Detail' });
+};
+export const editVideoController = (req, res) => {
+  res.render('editVideo', { pageTitle: 'Edit Video' });
+};
+export const deleteVideoController = (req, res) => {
+  res.render('deleteVideo', { pageTitle: 'Delete Video' });
+};
