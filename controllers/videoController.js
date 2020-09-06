@@ -1,6 +1,8 @@
+import { videos } from '../db';
+
 /* globalRoutes */
 export const homeController = (req, res) => {
-  res.render('home', { pageTitle: 'Home' });
+  res.render('home', { pageTitle: 'Home', videos });
 };
 export const searchController = (req, res) => {
   const {
