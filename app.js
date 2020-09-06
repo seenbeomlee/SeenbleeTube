@@ -1,28 +1,28 @@
 // order import by alphabet
-import express from "express";
-import morgan from "morgan";
-import helmet from "helmet";
-import cookieParser from "cookie-parser";
-import bodyParser from "body-parser";
+import express from 'express';
+import morgan from 'morgan';
+import helmet from 'helmet';
+import cookieParser from 'cookie-parser';
+import bodyParser from 'body-parser';
 
-import { localsMiddleware } from "./middelwares";
+import { localsMiddleware } from './middelwares';
 
-import userRouter from "./routers/userRouter";
-import videoRouter from "./routers/videoRouter";
-import globalRouter from "./routers/globalRouter";
+import userRouter from './routers/userRouter';
+import videoRouter from './routers/videoRouter';
+import globalRouter from './routers/globalRouter';
 
-import routes from "./routes"
-
+import routes from './routes';
 
 const app = express();
 
 /* set basic engine to 'pug' */
+//app.use( helmet({ contentSecurityPolicy: false, }));
 app.use(helmet());
-app.set('view engine', "pug");
+app.set('view engine', 'pug');
 app.use(cookieParser());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(morgan("dev"));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(morgan('dev'));
 
 app.use(localsMiddleware);
 
