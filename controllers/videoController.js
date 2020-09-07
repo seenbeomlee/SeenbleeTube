@@ -1,4 +1,5 @@
 import { videos } from '../db';
+import routes from '../routes';
 
 /* globalRoutes */
 export const homeController = (req, res) => {
@@ -12,9 +13,17 @@ export const searchController = (req, res) => {
 };
 
 /* videoRoutes */
-export const uploadController = (req, res) => {
+export const getUploadController = (req, res) => {
   res.render('upload', { pageTitle: 'Upload' });
 };
+export const postUploadController = (req, res) => {
+  const {
+    body: { file, title, description },
+  } = req;
+  // To Do: Upload and save video
+  res.redirect(routes.videoDetail(324393));
+};
+
 export const videoDetailController = (req, res) => {
   res.render('videoDetail', { pageTitle: 'Video Detail' });
 };
