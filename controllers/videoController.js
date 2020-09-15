@@ -1,9 +1,16 @@
 import routes from '../routes';
+import Video from '../models/Video';
 
 /* globalRoutes */
-export const homeController = (req, res) => {
-  res.render('home', { pageTitle: 'Home', videos });
+export const homeController = async (req, res) => {
+  try {
+    const videos = await Video.find({});
+    res.render('home', { pageTitle: 'Home', videos });
+  } catch (error) {
+    res.render('home', { pageTitle: 'Home', videos: [] });
+  }
 };
+
 export const searchController = (req, res) => {
   const {
     query: { term: searchingBy },
