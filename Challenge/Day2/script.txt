@@ -1,0 +1,15 @@
+# node
+ 브라우저에 종속되어있던 Js를 다양한 목적을 위해 사용할 수 있도록 하는 Tool
+ we can easily use Js on our console.
+
+# Backend languages
+ PHP Python Ruby .NET
+
+# Node Js
+ 1/ if you can utilize Js and customize everything, then use NodeJs (block by block, just learn about elementary grammer and utilize it)
+ Django => U just need to learn how to utilize it (learn how to play with it)
+
+ 2/ If you handle a lot of data, then using Node Js is worth
+ If you need to use hardware power(DB, compress Images..), then using Js is not worth. => Js doesn't have any ability to access it.
+ Python does not sync => real-time X
+ 
