@@ -1,0 +1,5 @@
+# 웹사이트 => Vanilla Js
+ 사용자로서 컨텐츠를 단순히 소비하는 경우 (not interactive, just consume)
+
+# 어플리케이션 => React Js, Electron
+ 클릭, 발견, 검색 등 (Netflix) 
