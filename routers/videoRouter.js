@@ -8,7 +8,7 @@ import {
   deleteVideoController,
 } from '../controllers/videoController';
 
-import { uploadVideo } from '../middelwares';
+import { uploadVideo } from '../middlewares';
 
 const videoRouter = express.Router();
 

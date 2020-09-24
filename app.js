@@ -5,7 +5,7 @@ import helmet from 'helmet';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 
-import { localsMiddleware } from './middelwares';
+import { localsMiddleware } from './middlewares';
 
 import userRouter from './routers/userRouter';
 import videoRouter from './routers/videoRouter';
