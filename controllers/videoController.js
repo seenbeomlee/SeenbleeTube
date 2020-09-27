@@ -11,10 +11,16 @@ export const homeController = async (req, res) => {
   }
 };
 
-export const searchController = (req, res) => {
+export const searchController = async (req, res) => {
   const {
     query: { term: searchingBy },
   } = req;
+  let videos = [];
+  try {
+    videos = await Video.find({ title: { $regex: searchingBy, $options: 'i' } });
+  } catch (error) {
+    console.log(error);
+  }
   res.render('search', { pageTitle: 'Search', searchingBy, videos });
 };
 
