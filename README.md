@@ -1,6 +1,7 @@
-# CLONE_youtube
+# SeenbleeTube
 
-Cloning Youtube with VanillaJs and NodeJs
+1/ Cloning Youtube with VanillaJs and NodeJs
+2/ Customizing platform for SeenbleeTube
 
 ## Pages:
 
