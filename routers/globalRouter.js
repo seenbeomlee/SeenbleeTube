@@ -8,20 +8,21 @@ import {
   postLoginController,
   logoutController,
 } from '../controllers/userController';
+import { onlyPublic, onlyPrivate } from '../middlewares';
 
 const globalRouter = express.Router();
 /* */
-globalRouter.get(routes.join, getJoinController);
-globalRouter.post(routes.join, postJoinController, postLoginController);
+globalRouter.get(routes.join, onlyPublic, getJoinController);
+globalRouter.post(routes.join, onlyPublic, postJoinController, postLoginController);
 
-globalRouter.get(routes.login, getLoginController);
-globalRouter.post(routes.login, postLoginController);
+globalRouter.get(routes.login, onlyPublic, getLoginController);
+globalRouter.post(routes.login, onlyPublic, postLoginController);
 
 /* videoController */
 globalRouter.get(routes.home, homeController);
 globalRouter.get(routes.search, searchController);
 
 /* userController */
-globalRouter.get(routes.logout, logoutController);
+globalRouter.get(routes.logout, onlyPrivate, logoutController);
 
 export default globalRouter;
