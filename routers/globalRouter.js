@@ -1,4 +1,5 @@
 import express from 'express';
+import passport from 'passport';
 import routes from '../routes';
 import { homeController, searchController } from '../controllers/videoController';
 import {
@@ -7,6 +8,8 @@ import {
   getLoginController,
   postLoginController,
   logoutController,
+  githubLogin,
+  postGithubLogIn,
 } from '../controllers/userController';
 import { onlyPublic, onlyPrivate } from '../middlewares';
 
@@ -24,5 +27,13 @@ globalRouter.get(routes.search, searchController);
 
 /* userController */
 globalRouter.get(routes.logout, onlyPrivate, logoutController);
+
+globalRouter.get(routes.gitHub, githubLogin);
+
+globalRouter.get(
+  routes.githubCallback,
+  passport.authenticate('github', { failureRedirect: '/login' }),
+  postGithubLogIn
+);
 
 export default globalRouter;
