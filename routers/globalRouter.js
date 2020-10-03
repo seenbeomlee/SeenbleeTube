@@ -1,9 +1,6 @@
 import express from 'express';
 import routes from '../routes';
-import {
-  homeController,
-  searchController,
-} from '../controllers/videoController';
+import { homeController, searchController } from '../controllers/videoController';
 import {
   getJoinController,
   postJoinController,
@@ -15,7 +12,7 @@ import {
 const globalRouter = express.Router();
 /* */
 globalRouter.get(routes.join, getJoinController);
-globalRouter.post(routes.join, postJoinController);
+globalRouter.post(routes.join, postJoinController, postLoginController);
 
 globalRouter.get(routes.login, getLoginController);
 globalRouter.post(routes.login, postLoginController);
