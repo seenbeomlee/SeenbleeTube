@@ -78,8 +78,17 @@ export const getMe = (req, res) => {
 };
 
 /* userRoutes */
-export const userDetailController = (req, res) =>
-  res.render('userDetail', { pageTitle: 'User Detail' });
+export const userDetailController = async (req, res) => {
+  const {
+    params: { id },
+  } = req;
+  try {
+    const user = await User.findById(id);
+    res.render('userDetail', { pageTitle: 'User Detail', user });
+  } catch (error) {
+    res.redirect(routes.home);
+  }
+};
 export const editProfileController = (req, res) =>
   res.render('editProfile', { pageTitle: 'Edit Profile' });
 export const changePasswordController = (req, res) =>
