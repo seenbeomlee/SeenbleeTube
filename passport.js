@@ -23,7 +23,7 @@ passport.use(
     {
       clientID: process.env.FB_ID,
       clientSecret: process.env.FB_SECRET,
-      callbackURL: `http://localhost:4000${routes.facebookCallback}`,
+      callbackURL: `https://friendly-lizard-9.loca.lt/${routes.facebookCallback}`,
     },
     facebookLoginCallback
   )
