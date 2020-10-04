@@ -99,7 +99,7 @@ export const userDetailController = async (req, res) => {
     res.redirect(routes.home);
   }
 };
-export const editProfileController = (req, res) =>
+export const getEditProfileController = (req, res) =>
   res.render('editProfile', { pageTitle: 'Edit Profile' });
 export const changePasswordController = (req, res) =>
   res.render('changePassword', { pageTitle: 'Change Password' });
