@@ -2,6 +2,7 @@ import multer from 'multer';
 import routes from './routes';
 
 const multerVideo = multer({ dest: 'uploads/videos/' });
+const multerAvatar = multer({ dest: 'uploads/avatars/' });
 
 export const localsMiddleware = (req, res, next) => {
   res.locals.siteName = 'Seenblee Tube';
@@ -31,3 +32,4 @@ export const onlyPrivate = (req, res, next) => {
 
 /* only 1 file is allowed */
 export const uploadVideo = multerVideo.single('videoFile');
+export const uploadAvatar = multerAvatar.single('avatar');
