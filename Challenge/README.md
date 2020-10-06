@@ -65,3 +65,19 @@ Mixins are useful when i want to reuse some HTML block that has 'same structure'
 # Difference between 'Date.now' & 'Date.now()'
 
 > Date.now() executes the function immediately, but Date.now waits for the function to be called.
+
+# Webpack
+
+> Webpack is a module bundler
+> 'Webpack' is the package we use in a file & 'Webpack-Cli' is package we use in the console
+> by default, when we call it, webpack looks for webpack.config.js
+> In webpack, "entry" is a path to the root file of our app & "output" is a path to the directory where all the transformed assets should go.
+> In webpack, "modules" object allows us to specify different transformations for different file formats.
+> We can teach our webpack how to transform the files by Using 'loaders'.
+
+# Webpack - Rules
+
+> In the 'rules' array inside of the "modules" object, We can write all the transform instructions for webpack
+> How many rules that loaders can have? > Min 1. Max Infinite.
+
+# Loaders are used from last to first
