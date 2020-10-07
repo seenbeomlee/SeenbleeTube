@@ -81,3 +81,19 @@ Mixins are useful when i want to reuse some HTML block that has 'same structure'
 > How many rules that loaders can have? > Min 1. Max Infinite.
 
 # Loaders are used from last to first
+
+## Passport.js
+
+> it is an authentication middleware (not a library, not a framework either)
+> passport stores the sessions in the Cookies
+> Cookies are sent to the server at every request
+> if we don't use a CookieStore, then the cookies will not be persistent (when user refresh his broswer, user will be logged out)
+
+# Serialize
+
+> is a function where we can decide what info the cookie will have
+
+# De-Serialize
+
+> a function where we turn the cookie into an user object
+> After deserialize, passport puts "user object" in "req.user" an then gives us
