@@ -119,6 +119,7 @@ var videoContainer = document.getElementById('jsVideoPlayer');
 var videoPlayer = document.querySelector('#jsVideoPlayer video');
 var playBtn = document.getElementById('jsPlayButton');
 var volumeBtn = document.getElementById('jsVolumeBtn');
+var fullScrnBtn = document.getElementById('jsFullScreen');
 
 function handlePlayClick() {
   if (videoPlayer.paused) {
@@ -126,7 +127,7 @@ function handlePlayClick() {
     playBtn.innerHTML = '<i class="fas fa-pause"></i>';
   } else {
     videoPlayer.pause();
-    playBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+    playBtn.innerHTML = '<i class="fas fa-play"></i>';
   }
 }
 
@@ -140,9 +141,26 @@ function handleVolumeClick() {
   }
 }
 
+function outFullScreen() {
+  fullScrnBtn.innerHTML = '<i class="fas fa-expand"></i>';
+  fullScrnBtn.addEventListener('click', goFullScreen);
+  document.webkitExitFullscreen()();
+}
+
+function goFullScreen() {
+  /* there is no function to check if screen is full or not */
+
+  /* So i will just handle my eventListener to do it */
+  videoContainer.requestFullscreen();
+  fullScrnBtn.innerHTML = '<i class="fas fa-compress"></i>';
+  fullScrnBtn.removeEventListener('click', goFullScreen);
+  fullScrnBtn.addEventListener('click', outFullScreen);
+}
+
 function init() {
   playBtn.addEventListener('click', handlePlayClick);
   volumeBtn.addEventListener('click', handleVolumeClick);
+  fullScrnBtn.addEventListener('click', goFullScreen);
 }
 
 if (videoContainer) {
