@@ -118,6 +118,7 @@ var _require = __webpack_require__(/*! prettier */ "./node_modules/prettier/stan
 var videoContainer = document.getElementById('jsVideoPlayer');
 var videoPlayer = document.querySelector('#jsVideoPlayer video');
 var playBtn = document.getElementById('jsPlayButton');
+var volumeBtn = document.getElementById('jsVolumeBtn');
 
 function handlePlayClick() {
   if (videoPlayer.paused) {
@@ -125,12 +126,23 @@ function handlePlayClick() {
     playBtn.innerHTML = '<i class="fas fa-pause"></i>';
   } else {
     videoPlayer.pause();
-    playBtn.innerHTML = '<i class="fas fa-play"></i>';
+    playBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+  }
+}
+
+function handleVolumeClick() {
+  if (videoPlayer.muted) {
+    videoPlayer.muted = false;
+    volumeBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+  } else {
+    videoPlayer.muted = true;
+    volumeBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
   }
 }
 
 function init() {
   playBtn.addEventListener('click', handlePlayClick);
+  volumeBtn.addEventListener('click', handleVolumeClick);
 }
 
 if (videoContainer) {
