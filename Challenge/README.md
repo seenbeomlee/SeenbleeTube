@@ -97,3 +97,11 @@ Mixins are useful when i want to reuse some HTML block that has 'same structure'
 
 > a function where we turn the cookie into an user object
 > After deserialize, passport puts "user object" in "req.user" an then gives us
+
+## Passport.js > Serialize vs Deserialize
+
+# passport.serializeUser & passport.deserializeUser
+
+> 전통적인 로그인 로직을 구현해 보았다면, 유저가 입력한 정보가 담긴 request 객체에 유저 정보를 조회하여 DB에 저장된 유저 정보와 일치하게 되면 세션이나 토큰 등의 인증을 발급하는 것을 알 수 있다. 그렇게 발급된 세션이나 토큰을 이용해 이후에 로그인 정보가 필요한 기능을 쓰게되면 계속 세션에 접근해서 유저정보를 조회한다.
+> passport.serializeUser 는 그러한 일들 중 세션 발급에 관한 일을 한다. passport.serializeUser 는 로그인 성공 초기에 한 번 실행. 정확히는, Passport의 전략이 실행되고 전략 객체에서 Done의 두 번째 인자가 false가 아닐 때 (유저의 정보가 들어왔을 때) 실행되며 그 유저의 정보를 받는다. 여기에서는 세션에 어떠한 정보를 담아서 발급할 것인지 정하는 부분이다. 그것이 DB상의 pk로 되어있는 아이디든 유저네임이든 passport.serializeUser 에서 done의 2번째 인자로 넘겨주면 된다.
+> passport.deserializeUser 의 경우에는 페이지를 넘나들거나 할 때 인증을 위해 세션(에 담겨진 정보)를 어떻게 조회할 것인지 호출이 된다. 정확하게 이야기를 하면 passport.session() 이 실행되어 세션에 접근할 때마다 작동되는 함수라고 할 수 있다. 여기에서 첫번째 매개변수로 id를 받는 것을 인터넷에서 예제로 많이 볼 수 있다. 이 id는 passport.serializeUser 에서 done의 2번째 인자로 넘겨주었던 정보라고 생각하면 쉽다. 세션으로 넘겨주었던 정보를 첫번째 인자로 받아 DB에서 조회하거나 하면 된다.
