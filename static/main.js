@@ -234,25 +234,42 @@ if (videoContainer) {
   !*** ./assets/js/videoRecorder.js ***!
   \************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+var _require = __webpack_require__(/*! prettier */ "./node_modules/prettier/standalone.js"),
+    doc = _require.doc;
+
 var recorderContainer = document.getElementById('jsRecordContainer');
 var recordBtn = document.getElementById('jsRecordBtn');
 var videoPreview = document.getElementById('jsVideoPreview');
 var streamObject;
+var videoRecorder;
 
 var handleVideoData = function handleVideoData(event) {
-  console.log(event);
+  var videoFile = event.data;
+  var link = document.createElement('a');
+  link.href = URL.createObjectURL(videoFile);
+  link.download = 'recorded.webm';
+  document.body.appendChild(link);
+  link.click();
+};
+
+var stopRecording = function stopRecording() {
+  videoRecorder.stop();
+  recordBtn.removeEventListener('click', stopRecording);
+  recordBtn.addEventListener('click', getVideo);
+  recordBtn.innerHTML = 'Start recording';
 };
 
 var startRecording = function startRecording() {
-  var videoRecorder = new MediaRecorder(streamObject);
+  videoRecorder = new MediaRecorder(streamObject);
   videoRecorder.start();
   videoRecorder.addEventListener('dataavailable', handleVideoData);
+  recordBtn.addEventListener('click', stopRecording);
 };
 
 var getVideo = /*#__PURE__*/function () {
