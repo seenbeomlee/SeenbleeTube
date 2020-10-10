@@ -67,7 +67,7 @@ function setTotalTime() {
 }
 
 function setCurrentTime() {
-  currentTime.innerHTML = formatDate(videoPlayer.currentTime);
+  currentTime.innerHTML = formatDate(Math.floor(videoPlayer.currentTime));
 }
 
 function handleEnded() {
