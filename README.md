@@ -5,13 +5,17 @@
 
 ## Pages:
 
-- [ ] Home
+- [x] Home
 - [x] Join
 - [x] Login(Logout)
 - [x] Search
-- [ ] User Detail
-- [ ] Edit Profile
-- [ ] Change Password
-- [ ] Upload Video(Delete Video)
-- [ ] Video Detail
-- [ ] Edit Video
+- [x] User Detail
+- [x] Edit Profile
+- [x] Change Password
+- [x] Upload Video(Delete Video)
+- [x] Video Detail
+- [x] Edit Video
+
+## Release
+
+- [ ] AWS S3
