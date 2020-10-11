@@ -16,6 +16,11 @@
 - [x] Video Detail
 - [x] Edit Video
 
+> delete comment function is required (if user is owner of comment, user can see 'x' btn to delete comment)
+
+- [ ] delete comment
+- [ ] customizing html & css / studying for Webpack & scss
+
 ## Release
 
 - [ ] AWS S3
