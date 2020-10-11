@@ -1,3 +1,5 @@
+import getBlobDuration from 'get-blob-duration';
+
 const { doc } = require('prettier');
 
 const videoContainer = document.getElementById('jsVideoPlayer');
@@ -76,8 +78,15 @@ const formatDate = (seconds) => {
   return `${hours}:${minutes}:${totalSeconds}`;
 };
 
-function setTotalTime() {
-  const totalTimeString = formatDate(videoPlayer.duration);
+async function setTotalTime() {
+  let duration;
+  if (!isFinite(videoPlayer.duration)) {
+    const blob = await fetch(videoPlayer.src).then((response) => response.blob());
+    duration = await getBlobDuration(blob);
+  } else {
+    duration = videoPlayer.duration;
+  }
+  const totalTimeString = formatDate(duration);
   totalTime.innerHTML = totalTimeString;
 }
 
