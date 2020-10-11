@@ -10,6 +10,7 @@ const totalTime = document.getElementById('totalTime');
 const volumeRange = document.getElementById('jsVolume');
 
 const registerView = () => {
+  /* how to get URL from users address */
   const videoId = window.location.href.split('/videos/')[1];
   fetch(`/api/${videoId}/view`, {
     method: 'POST',

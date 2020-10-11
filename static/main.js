@@ -97,12 +97,47 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 
 var addCommentForm = document.getElementById('jsAddComment');
 
-var sendComment = function sendComment(comment) {
-  console.log(comment);
-};
+var sendComment = /*#__PURE__*/function () {
+  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(comment) {
+    var videoId, response;
+    return regeneratorRuntime.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            /* how to get URL from users address */
+            videoId = window.location.href.split('/videos/')[1];
+            _context.next = 3;
+            return axios__WEBPACK_IMPORTED_MODULE_0___default()({
+              url: "/api/".concat(videoId, "/comment"),
+              method: 'POST',
+              data: {
+                comment: comment
+              }
+            });
+
+          case 3:
+            response = _context.sent;
+            console.log(response);
+
+          case 5:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+
+  return function sendComment(_x) {
+    return _ref.apply(this, arguments);
+  };
+}();
 
 var handleSubmit = function handleSubmit(event) {
   /* prevent refresh */
@@ -110,6 +145,8 @@ var handleSubmit = function handleSubmit(event) {
   var commentInput = addCommentForm.querySelector('input');
   var comment = commentInput.value;
   sendComment(comment);
+  /* clean commentInputFrom after user submit a comment */
+
   commentInput.value = '';
 };
 
@@ -167,6 +204,7 @@ var totalTime = document.getElementById('totalTime');
 var volumeRange = document.getElementById('jsVolume');
 
 var registerView = function registerView() {
+  /* how to get URL from users address */
   var videoId = window.location.href.split('/videos/')[1];
   fetch("/api/".concat(videoId, "/view"), {
     method: 'POST'
