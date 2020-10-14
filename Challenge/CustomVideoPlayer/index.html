@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Video Player</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+      integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
+      crossorigin="anonymous"
+    />
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <div class="videoContainer">
+      <video
+        autoplay
+        loop
+        width="700px"
+        src="https://serranoarevalo.github.io/notflix/9bfd1023900e31286103369c803c7ee9.ogv"
+      ></video>
+      <div class="controller">
+        <div class="controller__Column playBtn">
+          <i class="fas fa-pause"></i>
+        </div>
+        <div class="controller__Column">
+          <span class="timer"></span>
+          <span class="soundBtn">
+            <i class="fas fa-volume-up"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>
